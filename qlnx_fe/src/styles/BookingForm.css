@@ -1,0 +1,131 @@
+.font-inter { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial; }
+
+/* Background */
+.bf-bg{
+  min-height:70vh;
+  background: radial-gradient(1100px 380px at 50% -180px,#1f2a44 20%,#0f172a 70%);
+  display:grid; place-items:center;
+  padding:24px 16px; color:#e5e7eb;
+}
+.bf-wrap{ width:100%; max-width:900px; }
+
+/* Card */
+.bf-card{
+  background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:16px;
+  box-shadow:0 16px 50px rgba(2,6,23,.35);
+  padding:18px;
+}
+
+/* Head */
+.bf-head{text-align:center; margin-bottom:12px;}
+.bf-title{margin:0; font-size:22px; font-weight:900; color:#fff;}
+.bf-sub{margin:6px 0 0; color:#94a3b8;}
+
+/* Alert */
+.bf-alert{margin:10px 0 14px; padding:10px 12px; border-radius:12px; font-weight:700; border:1px solid;}
+.bf-alert.err{ background:rgba(239,68,68,.12); border-color:rgba(239,68,68,.35); color:#fca5a5; }
+.bf-alert.ok { background:rgba(16,185,129,.12); border-color:rgba(16,185,129,.35); color:#86efac; }
+
+/* Grid */
+.bf-grid{
+  display:grid; gap:14px; align-items:end;
+  grid-template-columns: 1fr 56px 1fr 1fr;
+}
+.bf-field{ display:grid; gap:6px; }
+.bf-label{ font-weight:800; color:#cbd5e1; }
+
+/* Controls */
+.bf-control{ position:relative; }
+.bf-control.has-icon .bf-icon{
+  position:absolute; left:10px; top:50%; transform:translateY(-50%);
+  opacity:.7; pointer-events:none;
+}
+.bf-input{
+  width:100%; padding:12px 12px 12px 34px;
+  border:1px solid rgba(255,255,255,.12); border-radius:12px;
+  background:rgba(255,255,255,.06); color:#e2e8f0;
+  outline:none; transition:border-color .15s, box-shadow .15s, background .15s;
+}
+.bf-input:focus{
+  border-color:#60a5fa; box-shadow:0 0 0 3px rgba(59,130,246,.25);
+  background:rgba(255,255,255,.08);
+}
+.bf-input:disabled{ opacity:.65; cursor:not-allowed; }
+
+.bf-date{ grid-column:1 / -2; }
+
+/* Swap button */
+.bf-swap{ display:grid; place-items:center; padding-bottom:2px; }
+.bf-swap-btn{
+  width:46px; height:46px; border-radius:50%;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.06); color:#e2e8f0; font-size:18px;
+  cursor:pointer; transition:transform .15s, background .15s, border-color .15s;
+}
+.bf-swap-btn:hover{ transform:rotate(180deg); background:rgba(255,255,255,.09); border-color:rgba(99,102,241,.4); }
+.bf-swap-btn:disabled{ opacity:.5; cursor:not-allowed; transform:none; }
+
+/* Action */
+.bf-action{ grid-column:-2 / -1; }
+.bf-btn{
+  width:100%; padding:12px 14px; border-radius:12px; border:none;
+  background:#2563eb; color:#fff; font-weight:900; cursor:pointer;
+  box-shadow:0 10px 24px rgba(37,99,235,.25);
+}
+.bf-btn:active{ transform:translateY(1px); }
+
+/* Skeleton loading */
+.bf-skeleton{ display:grid; gap:12px; }
+.sk-line{ height:18px; width:40%; background:rgba(255,255,255,.08); border-radius:10px; }
+.sk-grid{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.sk-box{ height:48px; background:rgba(249, 247, 247, 0.911); border-radius:12px; }
+.sk-btn{ height:48px; background:rgba(245, 240, 240, 0.922); border-radius:12px; }
+
+/* Responsive */
+@media (max-width: 880px){
+  .bf-grid{ grid-template-columns:1fr 1fr; }
+  .bf-swap{ order:3; }
+  .bf-date{ grid-column:1 / -1; }
+  .bf-action{ grid-column:1 / -1; }
+}
+/* --- Fix màu chữ trong dropdown chọn --- */
+select.bf-input,
+.bf-input option {
+  background-color: #1e293b !important; /* nền tối */
+  color: #f1f5f9 !important;            /* chữ sáng rõ */
+}
+
+.bf-input option:hover,
+.bf-input option:focus,
+.bf-input option:checked {
+  background-color: #2563eb !important; /* xanh nổi bật khi hover */
+  color: #fff !important;
+}
+/* --- Fix màu chữ & nền dropdown chọn (sáng hơn, dễ nhìn) --- */
+select.bf-input,
+.bf-input option {
+  background-color: #f8fafc !important; /* nền sáng */
+  color: #0f172a !important;            /* chữ đậm dễ đọc */
+}
+
+.bf-input option:hover,
+.bf-input option:focus,
+.bf-input option:checked {
+  background-color: #e0e7ff !important; /* xanh nhạt khi hover */
+  color: #111827 !important;
+}
+
+.bf-input {
+  background: #f1f5f9 !important;       /* nền input sáng */
+  color: #111827 !important;
+  border-color: #cbd5e1 !important;
+}
+
+.bf-input:focus {
+  border-color: #2563eb !important;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.25) !important;
+  background: #ffffff !important;
+  color: #0f172a !important;
+}

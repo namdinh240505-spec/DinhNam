@@ -1,0 +1,151 @@
+/* =======================
+   THEME TOKENS (dễ chỉnh)
+   ======================= */
+:root {
+  --card-bg: rgba(17, 24, 39, 0.55);     /* nền kính mờ */
+  --card-border: rgba(255,255,255,0.10); /* viền mảnh */
+  --card-inner: rgba(255,255,255,0.06);  /* viền trong */
+  --text-weak: #9ca3af;                  /* chữ phụ */
+  --text-strong: #e5e7eb;                /* chữ chính */
+  --accent-1: rgba(2, 12, 22, 0.35);     /* xanh đen */
+  --accent-2: rgba(147, 51, 234, 0.35);  /* tím */
+  --glow-1: rgba(1, 10, 19, 0.16);       /* loang xanh đen */
+  --glow-2: rgba(147, 51, 234, 0.12);    /* loang tím */
+  --ring: rgba(255,255,255,0.20);        /* focus */
+  --btn-bg: rgba(255,255,255,0.06);
+  --btn-bg-hover: rgba(255,255,255,0.12);
+  --pill-bg: rgba(255,255,255,0.08);
+  --pill-border: rgba(255,255,255,0.10);
+  --input-bg: rgba(0,0,0,0.30);
+  --input-border: rgba(255,255,255,0.10);
+}
+
+/* =======================
+   CARD GLASS + GRADIENT
+   ======================= */
+.report-card {
+  position: relative;
+  border-radius: 24px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 12px 30px rgba(0,0,0,.35), inset 0 1px 0 var(--card-inner);
+  overflow: hidden;
+  /* Blur kính mờ + fallback */
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+@supports not ((-webkit-backdrop-filter: blur(12px)) or (backdrop-filter: blur(12px))) {
+  .report-card { background: rgba(17, 24, 39, 0.85); }
+}
+
+/* Viền gradient mảnh chạy quanh card */
+.report-card::before {
+  content: "";
+  position: absolute; inset: 0;
+  padding: 1px; border-radius: 24px;
+  background:
+    radial-gradient(1200px 400px at 80% -100%, var(--accent-1), var(--accent-2) 45%, transparent 70%)
+    border-box;
+  /* “đục lỗ” phần giữa để chỉ giữ viền */
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Lưới nền rất mờ (tăng density trên màn lớn) */
+.report-card .grid-bg {
+  position: absolute; inset: 0; pointer-events: none; opacity: .14;
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,.06) 1px, transparent 1px);
+  background-size: 28px 28px, 28px 28px;
+}
+@media (min-width: 1024px) {
+  .report-card .grid-bg { background-size: 32px 32px, 32px 32px; }
+}
+
+/* Ánh sáng loang nhẹ hai góc */
+.report-card .glow {
+  position: absolute; inset: -22%;
+  background:
+    radial-gradient(800px 300px at 85% 10%, var(--glow-1), transparent 60%),
+    radial-gradient(600px 280px at 0% 100%, var(--glow-2), transparent 60%);
+  filter: blur(2px);
+  pointer-events: none;
+}
+
+/* =======================
+   TEXT & UTILS
+   ======================= */
+.report-muted { color: var(--text-weak); }
+.report-strong { color: var(--text-strong); }
+
+/* =======================
+   BADGE / PILL
+   ======================= */
+.pill {
+  display: inline-flex; align-items: center; gap: .35rem;
+  padding: .38rem .7rem;
+  border-radius: 999px;
+  background: var(--pill-bg);
+  border: 1px solid var(--pill-border);
+  line-height: 1;
+}
+.pill--ok { background: rgba(16,185,129,.12); border-color: rgba(16,185,129,.25); color: #d1fae5; }
+.pill--warn { background: rgba(245,158,11,.12); border-color: rgba(245,158,11,.25); color: #fde68a; }
+
+/* =======================
+   BUTTON GLASS
+   ======================= */
+.btn-glass {
+  padding: .6rem 1rem;
+  border-radius: .9rem;
+  border: 1px solid var(--card-border);
+  background: var(--btn-bg);
+  color: var(--text-strong);
+  transition: background .18s ease, transform .06s ease, border-color .18s ease;
+}
+.btn-glass:hover { background: var(--btn-bg-hover); border-color: rgba(255,255,255,0.16); }
+.btn-glass:active { transform: translateY(1px); }
+.btn-glass:focus-visible { outline: none; box-shadow: 0 0 0 3px var(--ring); }
+
+/* =======================
+   INPUT DATE DARK
+   ======================= */
+.input-dark {
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  color: var(--text-strong);
+  border-radius: .85rem;
+  padding: .55rem .8rem;
+  outline: none;
+  transition: border-color .18s ease, box-shadow .18s ease, background .18s ease;
+}
+.input-dark::placeholder { color: var(--text-weak); opacity: .7; }
+.input-dark:hover { border-color: rgba(255,255,255,0.16); }
+.input-dark:focus { border-color: rgba(255,255,255,0.28); box-shadow: 0 0 0 3px var(--ring); }
+
+/* =======================
+   TABLE DARK
+   ======================= */
+.table-dark {
+  width: 100%; border-collapse: collapse; font-size: .95rem;
+}
+.table-dark thead th {
+  text-align: left; color: var(--text-weak);
+  padding: .6rem .75rem; border-bottom: 1px solid rgba(255,255,255,.10);
+  font-weight: 600;
+}
+.table-dark tbody td {
+  padding: .65rem .75rem; color: var(--text-strong);
+  border-top: 1px solid rgba(255,255,255,.06);
+}
+.table-dark tbody tr:hover { background: rgba(255,255,255,.05); }
+
+/* =======================
+   MOTION PREFERENCES
+   ======================= */
+@media (prefers-reduced-motion: reduce) {
+  .btn-glass, .input-dark { transition: none; }
+}

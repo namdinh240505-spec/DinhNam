@@ -1,0 +1,98 @@
+/* ===== Register Form (Auth) ===== */
+.auth-card{
+  width: min(560px, 92%);
+  margin: 48px auto;
+  padding: 22px;
+  border-radius: 16px;
+  background: rgba(18, 26, 51, 0.58);
+  border: 1px solid rgba(255,255,255,.08);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 10px 30px rgba(0,0,0,.25);
+}
+
+.auth-title{
+  margin: 0 0 12px;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: .2px;
+  text-align: center;
+}
+
+.auth-sub{
+  margin: 0 0 18px;
+  text-align: center;
+  font-size: 13px;
+  color: #8ea0c2;
+}
+
+/* Form grid */
+.form{
+  display: grid;
+  gap: 14px;
+}
+
+/* 2 cột cho màn hình rộng */
+@media (min-width: 720px){
+  .form.grid-2{
+    grid-template-columns: 1fr 1fr;
+  }
+  .span-2{
+    grid-column: 1 / -1;
+  }
+}
+
+/* Nhóm control */
+.form-group{
+  display: grid;
+  gap: 8px;
+}
+
+.label{
+  font-size: 13px;
+  color: #cfe0ff;
+  font-weight: 600;
+}
+
+/* Inputs */
+.input, .select, .file{
+  width: 100%;
+  padding: 12px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.08);
+  background: #0f1730;
+  color: #dbe6ff;
+  outline: none;
+  transition: border-color .15s ease, box-shadow .15s ease, background .15s ease;
+}
+
+.input::placeholder{ color: #7f90b3 }
+
+.input:hover, .select:hover, .file:hover{
+  border-color: rgba(255,255,255,.14);
+}
+.input:focus-visible, .select:focus-visible, .file:focus-visible{
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37,99,235,.28);
+  background: #101a38;
+}
+
+/* File input gọn gàng */
+.file{
+  padding: 10px;
+}
+.file-wrap{
+  display: flex; align-items: center; gap: 10px;
+}
+
+/* Lỗi & helper */
+.error{
+  font-size: 12px;
+  color: #ff7676;
+  line-height: 1.2;
+}
+.helper{
+  font-size: 12px;
+  color: #8ea0c2;
+}
+
+/* Nút*

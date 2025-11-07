@@ -1,0 +1,137 @@
+/* Base */
+.font-inter { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji"; }
+.tickets-bg { background: radial-gradient(1200px 400px at 50% -200px, #162036 10%, #0f172a 60%); min-height: 100vh; }
+.tickets-wrap { max-width: 1000px; margin: 24px auto; padding: 0 16px; }
+.tickets-panel { background: rgba(15, 23, 42, 0.72); border: 1px solid rgba(255,255,255,.06); border-radius: 16px; box-shadow: 0 12px 40px rgba(2,6,23,.35); color: #e5e7eb; }
+
+/* Header */
+.tickets-panel__head { display: flex; justify-content: space-between; align-items: center; padding: 18px 18px 10px; border-bottom: 1px solid rgba(255,255,255,.06); }
+.tickets-title { margin: 0; font-size: 22px; font-weight: 900; color: #fff; letter-spacing: .3px; }
+.tickets-desc { margin: 6px 0 0; color: #94a3b8; }
+.tickets-actions { display: flex; gap: 10px; }
+
+.btn-primary { padding: 10px 14px; border-radius: 10px; border: none; background: #2563eb; color: #fff; font-weight: 800; cursor: pointer; box-shadow: 0 6px 20px rgba(37,99,235,.25); }
+.btn-primary:disabled { opacity: .6; cursor: not-allowed; }
+.btn-ghost { padding: 10px 14px; border-radius: 10px; border: 1px solid rgba(255,255,255,.12); background: transparent; color: #e5e7eb; font-weight: 700; cursor: pointer; }
+
+/* Tabs */
+.tickets-tabs { display: flex; gap: 8px; padding: 12px 18px; border-bottom: 1px solid rgba(255,255,255,.06); }
+.tab { padding: 8px 12px; border: 1px solid rgba(255,255,255,.1); border-radius: 999px; color: #cbd5e1; background: transparent; cursor: pointer; }
+.tab.is-active { background: #1d4ed8; color: #fff; border-color: transparent; }
+
+/* Alerts */
+.alert { border-radius: 12px; padding: 12px 14px; margin: 14px 18px 0; font-weight: 700; }
+.alert-success { background: rgba(16,185,129,.12); border: 1px solid rgba(16,185,129,.4); color: #34d399; }
+.alert-danger { background: rgba(239,68,68,.12); border: 1px solid rgba(239,68,68,.4); color: #f87171; }
+
+/* List */
+.tickets-list { padding: 16px 18px 22px; }
+.grid { display: grid; }
+.gap-4 { gap: 16px; }
+.mb-4 { margin-bottom: 16px; }
+
+/* Card */
+.ticket-card { background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01)); border: 1px solid rgba(255,255,255,.06); border-radius: 16px; padding: 14px; transition: transform .2s, box-shadow .2s, border-color .2s; }
+.ticket-card:hover { transform: translateY(-2px); border-color: rgba(99,102,241,.35); box-shadow: 0 12px 30px rgba(59,130,246,.15); }
+
+/* Skeleton */
+.ticket-card.is-skeleton { position: relative; overflow: hidden; }
+.skel { background: rgba(255,255,255,.08); border-radius: 8px; }
+.skel-title { height: 18px; width: 40%; margin-bottom: 10px; }
+.skel-sub { height: 12px; width: 60%; margin-bottom: 12px; }
+.skel-line { height: 48px; }
+
+/* Head */
+.ticket-card__head { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.ticket-card__head .left { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.code { display: inline-flex; align-items: center; gap: 8px; background: rgba(99,102,241,.12); border: 1px solid rgba(99,102,241,.35); color: #c7d2fe; padding: 6px 10px; border-radius: 12px; font-weight: 800; }
+.code .label { font-weight: 700; opacity: .7; }
+.code .value { font-variant-numeric: tabular-nums; }
+.btn-mini { padding: 4px 8px; border-radius: 8px; border: none; background: rgba(255,255,255,.08); color: #e5e7eb; cursor: pointer; }
+.right .price { font-size: 18px; font-weight: 900; color: #86efac; }
+
+/* Body */
+.ticket-card__body { margin-top: 12px; display: grid; gap: 12px; }
+.route { display: grid; gap: 12px; }
+.route-main { display: flex; gap: 12px; align-items: center; }
+.route-line { position: relative; width: 48px; display: flex; justify-content: center; }
+.rail { width: 2px; height: 38px; background: rgba(148,163,184,.35); }
+.dot { width: 10px; height: 10px; border-radius: 50%; border: 2px solid rgba(255,255,255,.8); background: #0ea5e9; }
+.dot.end { background: #22c55e; }
+.route-text .route-title { font-weight: 800; color: #e2e8f0; }
+.route-text .route-sub { color: #94a3b8; font-size: 12px; margin-top: 2px; }
+
+.meta { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.meta-item { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.06); padding: 8px 10px; border-radius: 12px; }
+.meta-label { display: block; font-size: 11px; color: #94a3b8; margin-bottom: 4px; }
+.meta-val { font-weight: 700; color: #e2e8f0; }
+
+.actions { display: flex; gap: 10px; justify-content: flex-end; margin-top: 4px; }
+
+/* Badges */
+.tk-badge { padding: 6px 10px; border-radius: 999px; font-weight: 800; font-size: 12px; border: 1px solid transparent; }
+.tk-badge--paid { background: rgba(16,185,129,.12); color: #34d399; border-color: rgba(16,185,129,.35); }
+.tk-badge--unpaid { background: rgba(234,179,8,.12); color: #facc15; border-color: rgba(234,179,8,.35); }
+.tk-badge--cancel { background: rgba(248,113,113,.12); color: #f87171; border-color: rgba(248,113,113,.35); }
+
+/* Empty */
+.empty { text-align: center; padding: 26px 10px; color: #94a3b8; }
+.empty .emoji { font-size: 36px; margin-bottom: 8px; }
+
+/* Responsive */
+@media (max-width: 860px) {
+  .meta { grid-template-columns: repeat(2, 1fr); }
+  .tickets-panel__head { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .tickets-actions { width: 100%; justify-content: flex-end; }
+}
+/* ==== Giá vé sáng và nổi bật ==== */
+.ticket-card .price {
+  font-size: 24px;
+  font-weight: 900;
+  letter-spacing: .3px;
+  text-align: right;
+  user-select: text;
+
+  /* Gradient chữ + viền sáng */
+  background: linear-gradient(90deg, #ec4899 10%, #a855f7 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
+  /* Viền sáng ngoài */
+  text-shadow:
+    0 0 10px rgba(236,72,153,.45),
+    0 0 25px rgba(168,85,247,.35),
+    0 0 40px rgba(168,85,247,.25);
+  filter: drop-shadow(0 8px 18px rgba(245, 104, 219, 0.25));
+  transition: transform .25s ease, text-shadow .25s ease, filter .25s ease;
+}
+
+/* Hiệu ứng hover nổi sáng */
+.ticket-card:hover .price {
+  transform: translateY(-1px);
+  text-shadow:
+    0 0 12px rgba(236,72,153,.55),
+    0 0 35px rgba(168,85,247,.45),
+    0 0 60px rgba(168,85,247,.4);
+  filter: drop-shadow(0 12px 22px rgba(168,85,247,.35));
+}
+
+/* Với giá thấp hơn hoặc đã hủy: làm mờ nhẹ */
+.ticket-card.is-cancelled .price,
+.ticket-card .price.dim {
+  opacity: .7;
+  text-shadow: none;
+  filter: none;
+}
+.ticket-card .price {
+  font-size: 24px;
+  font-weight: 900;
+  background: linear-gradient(90deg, #fb7185, #f97316, #f43f5e);
+
+  color: transparent;
+  text-shadow:
+    0 0 10px rgba(251,113,133,.4),
+    0 0 25px rgba(249,115,22,.35),
+    0 0 40px rgba(244,63,94,.3);
+}
